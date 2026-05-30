@@ -18,7 +18,8 @@
     "esri/views/MapView",
     "esri/widgets/BasemapGallery",
     "esri/widgets/Expand"
-  ], function(esriConfig, Map, MapView, BasemapGallery, Expand) {
+    "esri/widgets/Locate"
+  ], function(esriConfig, Map, MapView, BasemapGallery, Expand, Locate) {
     // Map implementation code 
     esriConfig.apiKey = "AAPTaXW4BVW_ro3UyCh2wpLtbsw..S4T9V5K_hlh_60RGW9t_q7htVqq7iscsvxjm7dd1G8h2i2HUDFCe1l-xBCMaummjmRdIHDLSbsD8DI04VAG9NpUw0YA_nIOccQtabmzOOAcTL6hKl7cTkLMIlXQgwoVMZJbFA3l6_6KFWsMeGQQJCIydC6G0tbHy3E12vEZknZ7DtoweCnBZa-zK4eZnLJPEOQ6f-5q6gQv_sdJZgPHH1FcV0esU1rH-iaopU2P7UXhTG_o68RTsAtcuGj1TIC8dZNJu8W8ieWk.AT1_5tp0GXlO";
   // Create the Map instance
@@ -41,7 +42,7 @@ let basemapGallery = new BasemapGallery({
 
 // Create an Expand instance to hold the basemap gallery widget
 const basemapGalleryExpand = new Expand({
-  expandIcon: "layers-f",  
+  expandIcon: "layers",  
   view: view,
   content: basemapGallery
 });
@@ -49,6 +50,18 @@ const basemapGalleryExpand = new Expand({
 view.ui.add(basemapGalleryExpand, {
   position: "top-right"
 });
+
+// Create a Locate widget to find and display the user's location
+const locateWidget = new Locate({
+  view: view,
+  useGraphicLocation: true // Highlights the user's location
+});
+
+// Add the widget to the top left corner of the UI
+view.ui.add(locateWidget, {
+  position: "top-left"
+});
+
 
 });
 </script>
