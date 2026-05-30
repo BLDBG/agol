@@ -49,8 +49,13 @@ const view = new MapView({
 </head>
 <body>
 
-<!-- Create a div element for the ArcGIS API for JavaScript map view -->
+<!-- Create a zoom element for the ArcGIS API for JavaScript map view -->
 <div id="viewDiv"></div>
+
+<!-- Add the ArcGIS Basemap Gallery widget to the map -->
+<arcgis-map item-id="06ca49d0ddb447e7817cfc343ca30df9">
+  <arcgis-basemap-gallery slot="top-right"></arcgis-basemap-gallery>
+</arcgis-map>
 
 </body>
 </html>
