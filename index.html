@@ -38,6 +38,13 @@ const view = new MapView({
 let basemapGallery = new BasemapGallery({
   view: view
 });
+
+// Create an Expand instance to hold the basemap gallery widget
+const basemapGalleryExpand = new Expand({
+  expandIcon: "layers-f",  
+  view: view,
+  content: basemapGallery
+});
 // Add widget to the top right corner of the view
 view.ui.add(basemapGallery, {
   position: "top-right"
