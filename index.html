@@ -16,11 +16,13 @@
     "esri/config",
     "esri/Map",
     "esri/views/MapView",
+    "esri/Graphic",
+    "esri/layers/GraphicsLayer",
     "esri/widgets/BasemapGallery",
     "esri/widgets/Expand",
     "esri/widgets/Locate",
     "esri/widgets/Search"
-  ], function(esriConfig, Map, MapView, BasemapGallery, Expand, Locate, Search) {
+  ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, BasemapGallery, Expand, Locate, Search) {
     // Map implementation code 
     esriConfig.apiKey = "AAPTaXW4BVW_ro3UyCh2wpLtbsw..S4T9V5K_hlh_60RGW9t_q7htVqq7iscsvxjm7dd1G8h2i2HUDFCe1l-xBCMaummjmRdIHDLSbsD8DI04VAG9NpUw0YA_nIOccQtabmzOOAcTL6hKl7cTkLMIlXQgwoVMZJbFA3l6_6KFWsMeGQQJCIydC6G0tbHy3E12vEZknZ7DtoweCnBZa-zK4eZnLJPEOQ6f-5q6gQv_sdJZgPHH1FcV0esU1rH-iaopU2P7UXhTG_o68RTsAtcuGj1TIC8dZNJu8W8ieWk.AT1_5tp0GXlO";
   // Create the Map instance
@@ -35,6 +37,36 @@ const view = new MapView({
   zoom: 14, // Zoom scale level
   container: "viewDiv" // ID of our body div
 });
+
+// Create a GraphicsLayer to hold our graphics
+const graphicsLayer = new GraphicsLayer();
+map.add(graphicsLayer);
+
+// Create a point geometry for the location of interest
+const point = {
+  type: "point",
+  longitude: -87.8177658, // Coordinates for Frank's Diner
+  latitude: 42.5834933
+};
+
+//Defining the marker style
+const markerSymbol = {
+  type: "simple-marker",
+  color: "red",
+  outline: {
+    color: "white",
+    width: 2
+  }
+};
+
+//Creating the point
+const pointGraphic = new Graphic({
+  geometry: point,
+  symbol: markerSymbol,
+});
+
+// Add the point graphic to the graphics layer
+graphicsLayer.add(pointGraphic);
 
 // Add a basemap gallery widget to the view
 const basemapGallery = new BasemapGallery({
