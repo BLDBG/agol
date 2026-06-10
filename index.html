@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
 
-// ArcGIS API for JavaScript 
+<!-- ArcGIS API for JavaScript -->
 <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
 <script src="https://js.arcgis.com/4.25/"></script>
 
-// Initialize the ArcGIS API for JavaScript
+<!-- Initialize the ArcGIS API for JavaScript -->
 <script>
   require([
     "esri/config",
@@ -53,13 +53,14 @@ const point = {
 const markerSymbol = {
   type: "simple-marker",
   color: "red",
+  style: "diamond",
   outline: {
     color: "white",
-    width: 2
+    width: 1
   }
 };
 
-//Creating the point
+// Creating the point
 const pointGraphic = new Graphic({
   geometry: point,
   symbol: markerSymbol,
@@ -108,7 +109,8 @@ view.ui.add(searchWidget, {
 });
 </script>
 
-// CSS to make the map fullscreen
+<!-- CSS to make the map fullscreen -->
+
 <style>
   html, 
   body, 
@@ -123,7 +125,8 @@ view.ui.add(searchWidget, {
 </head>
 <body>
 
-// Create a zoom element for the ArcGIS API for JavaScript map view 
+<!-- Create a zoom element for the ArcGIS API for JavaScript map view -->
+
 <div id="viewDiv"></div>
 
 </body>
