@@ -60,10 +60,23 @@ const markerSymbol = {
   }
 };
 
+// Defining the popup content for the point
+const popupTemplate = {
+  title: "{Name}",
+  content: "{Description}"
+};
+const attributes = {
+  Name: "Frank's Diner",
+  Description: "Lunch-car joint serving up burgers, breakfast & other classic diner fare since 1926."
+};
+
 // Creating the point
 const pointGraphic = new Graphic({
   geometry: point,
   symbol: markerSymbol,
+  // Adding popup properties to the point graphic
+  popupTemplate: popupTemplate,
+  attributes: attributes
 });
 
 // Add the point graphic to the graphics layer
