@@ -1,2 +1,2 @@
-# bluemarble
-The first of an undetermined number of ESRI JS maps.
+# agol
+AGOL x ESRI JS maps
