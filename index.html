@@ -232,12 +232,14 @@ const airportRenderer = {
 
 // Create a FeatureLayer to display US Airports 
 const airportsLayer = new FeatureLayer({
-url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports_US/FeatureServer",
-renderer: airportRenderer,
+   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports_US/FeatureServer",
+   renderer: airportRenderer,
 
-// Set the popup template for the Airports layer
-  outFields: ["Fac_Name","Fac_Type","City","State_Name","Icao_Ident"],
-  popupTemplate: airportsPopupTemplate
+   definitionExpression: "Fac_Type = 'AIRPORT'", //filtering out non-airport facilities
+
+   // Set the popup template for the Airports layer
+   outFields: ["Fac_Name","Fac_Type","City","State_Name","Icao_Ident"],
+   popupTemplate: airportsPopupTemplate
 
 
 });
