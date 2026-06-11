@@ -219,9 +219,21 @@ url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Power_P
 
 });
 
+// Define a custom renderer for the Airports layer using a picture marker symbol
+const airportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://BLDBG.github.io/agol/local_airport_24dp_8B7DBE.png",
+          "width": "20px",
+          "height": "20px"
+        }
+      }
+
 // Create a FeatureLayer to display US Airports 
 const airportsLayer = new FeatureLayer({
 url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports_US/FeatureServer",
+renderer: airportRenderer,
 
 // Set the popup template for the Airports layer
   outFields: ["Fac_Name","Fac_Type","City","State_Name","Icao_Ident"],
