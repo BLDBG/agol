@@ -154,8 +154,18 @@ graphicsLayer.add(polygonGraphic);
 
 // Create a FeatureLayer to display Colleges and Universities in the area
 const usaeduLayer = new FeatureLayer({
-url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer"
+url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
+
+// Set the popup template for the Colleges and Universities layer
+  outFields: ["INSTNM","CITY","STABBR","WEBADDR"],
+  popupTemplate: usaeduPopupTemplate
+
+
 });
+
+
+
+// Add the Colleges and Universities layer to the map
 map.add(usaeduLayer);
 
 // Add a basemap gallery widget to the view
