@@ -114,6 +114,12 @@ const attributes = {
   Description: "Lunch-car joint serving up burgers, breakfast & other classic diner fare since 1926."
 };
 
+// Defining the popup content for the polygon - Kenosha Innovation Neighborhood
+const polygonPopupTemplate = {  
+  title: "Kenosha Innovation Neighborhood",
+  content: "The Kenosha Innovation Neighborhood is a vibrant hub of creativity and collaboration, fostering innovation and economic growth in the region. It serves as a catalyst for entrepreneurship, technology development, and community engagement, providing a dynamic environment for startups, established businesses, and educational institutions to thrive together."
+};
+
 // Creating the point
 const pointGraphic = new Graphic({
   geometry: point,
@@ -132,7 +138,8 @@ const polylineGraphic = new Graphic({
 // Creating the polygon
 const polygonGraphic = new Graphic({
   geometry: polygon,
-  symbol: polygonSymbol
+  symbol: polygonSymbol,
+  popupTemplate: polygonPopupTemplate
 });
 
 // Add the point graphic to the graphics layer
