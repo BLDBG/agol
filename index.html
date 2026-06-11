@@ -180,33 +180,6 @@ const powerPlantsPopupTemplate = {
   ]
 };
 
-// Defining the popup content for the Airports layer
-const airportsPopupTemplate = {
-  title: "{Fac_Name}",
-  content: [
-    {
-      type: "fields",
-      fieldInfos: [
-        {
-          fieldName: "Fac_Type",
-          label: "Facility Type"
-        },
-        {
-          fieldName: "City",
-          label: "City"
-        },
-        {
-          fieldName: "State_Name",
-          label: "State"
-        },
-        {
-          fieldName: "Icao_Ident",
-          label: "ICAO Identifier"
-        }
-      ]
-    }
-  ]
-};
 
 // Create a FeatureLayer to display Power Plants
 const powerPlantsLayer = new FeatureLayer({
