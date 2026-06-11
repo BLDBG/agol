@@ -170,6 +170,10 @@ const powerPlantsPopupTemplate = {
         {
           fieldName: "Install_MW",
           label: "Installed Capacity (MW)"
+        },
+        {
+          fieldName: "tech_desc",
+          label: "Generation Technology"
         }
       ]
     }
@@ -182,7 +186,7 @@ const powerPlantsLayer = new FeatureLayer({
 url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Power_Plants_in_the_US/FeatureServer",
 
 // Set the popup template for the Power Plants layer
-  outFields: ["Plant_Name","City","State","Install_MW"],
+  outFields: ["Plant_Name","City","State","Install_MW","tech_desc"],
   popupTemplate: powerPlantsPopupTemplate
 
 
