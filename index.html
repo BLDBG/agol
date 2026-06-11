@@ -49,11 +49,55 @@ const point = {
   latitude: 42.5834933
 };
 
+// Create a polyline geometry for the Kenosha County Bike Trail
+const polyline = {
+  type: "polyline",
+  paths: [
+    [-87.844498, 42.544199], // Northern point of Kenosha County Bike Trail
+    [-87.844587, 42.535788], // Springbrook Rd crossing point on Kenosha County Bike Trail
+    [-87.844608, 42.522325], // 104th St crossing point on Kenosha County Bike Trail
+    [-87.844854, 42.507636], // 116th St crossing point on Kenosha County Bike Trail
+    [-87.844958, 42.493071] // Kenosha County Bike Trail Bridge
+  ]
+};
+
+// Create a polygon geomtry for the Kenosha Innovation Neighborhood
+const polygon = { 
+  type: "polygon",
+  rings: [
+    [-87.845662, 42.588098], // Northwest corner of Kenosha Innovation Neighborhood
+    [-87.845542, 42.580877], // Southwest corner of Kenosha Innovation Neighborhood
+    [-87.840580, 42.580794], // Southeast corner of Kenosha Innovation Neighborhood
+    [-87.836939, 42.582704], // East corner 1 of Kenosha Innovation Neighborhood
+    [-87.836954, 42.583553], // East corner 2 of Kenosha Innovation Neighborhood
+    [-87.840277, 42.583596], // East corner 3 of Kenosha Innovation Neighborhood
+    [-87.840647, 42.588013], // Northeast corner of Kenosha Innovation Neighborhood
+    [-87.845662, 42.588098] // Northwest corner of Kenosha Innovation Neighborhood
+  ]
+};
+
 //Defining the marker style
 const markerSymbol = {
   type: "simple-marker",
   color: "red",
   style: "diamond",
+  outline: {
+    color: "white",
+    width: 1
+  }
+};
+
+// Defining the line style
+const lineSymbol = {
+  type: "simple-line",
+  color: "blue",
+  width: 2
+};
+
+// Defining the polygon fill style
+const polygonSymbol = {
+  type: "simple-fill",
+  color: "green",
   outline: {
     color: "white",
     width: 1
@@ -79,8 +123,26 @@ const pointGraphic = new Graphic({
   attributes: attributes
 });
 
+// Creating the polyline
+const polylineGraphic = new Graphic({
+  geometry: polyline,
+  symbol: lineSymbol
+});
+
+// Creating the polygon
+const polygonGraphic = new Graphic({
+  geometry: polygon,
+  symbol: polygonSymbol
+});
+
 // Add the point graphic to the graphics layer
 graphicsLayer.add(pointGraphic);
+
+// Add the polyline graphic to the graphics layer
+graphicsLayer.add(polylineGraphic);
+
+// Add the polygon graphic to the graphics layer
+graphicsLayer.add(polygonGraphic);
 
 // Add a basemap gallery widget to the view
 const basemapGallery = new BasemapGallery({
