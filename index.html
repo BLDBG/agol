@@ -152,21 +152,44 @@ graphicsLayer.add(polylineGraphic);
 // Add the polygon graphic to the graphics layer
 graphicsLayer.add(polygonGraphic);
 
-// Create a FeatureLayer to display Colleges and Universities in the area
-const usaeduLayer = new FeatureLayer({
-url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
+// Defining the popup content for the Power Plants layer
+const powerPlantsPopupTemplate = {
+  title: "{Plant_Name}",
+  content: [
+    {
+      type: "fields",
+      fieldInfos: [
+        {
+          fieldName: "City",
+          label: "City"
+        },
+        {
+          fieldName: "State",
+          label: "State"
+        },
+        {
+          fieldName: "Install_MW",
+          label: "Installed Capacity (MW)"
+        }
+      ]
+    }
+  ]
+};
 
-// Set the popup template for the Colleges and Universities layer
-  outFields: ["INSTNM","CITY","STABBR","WEBADDR"],
-  popupTemplate: usaeduPopupTemplate
+
+// Create a FeatureLayer to display Power Plants
+const powerPlantsLayer = new FeatureLayer({
+url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Power_Plants_in_the_US/FeatureServer",
+
+// Set the popup template for the Power Plants layer
+  outFields: ["Plant_Name","City","State","Install_MW"],
+  popupTemplate: powerPlantsPopupTemplate
 
 
 });
 
-
-
-// Add the Colleges and Universities layer to the map
-map.add(usaeduLayer);
+// Add the Power Plants layer to the map
+map.add(powerPlantsLayer);
 
 // Add a basemap gallery widget to the view
 const basemapGallery = new BasemapGallery({
